@@ -3,10 +3,10 @@
 Cada item aqui vira uma Issue no GitHub (ver README para o passo a passo). O número entre `#` é só referência interna do backlog, não é o número da issue no GitHub — o GitHub numera automaticamente.
 
 ## Epic 1 — Infraestrutura e ambiente
-- [ ] #1 Subir PostGIS localmente via Docker Compose (imagem `postgis/postgis`)
-- [ ] #2 Criar ambiente Python (venv/conda) com GeoPandas, SQLAlchemy, psycopg2, mgwr, esda, libpysal, scikit-learn, xgboost
-- [ ] #3 Estruturar repositório e subir README inicial explicando o objetivo do projeto
-- [ ] #4 Criar conexão Python ↔ PostGIS testada com uma query simples (`SELECT PostGIS_Version()`)
+- [x] #1 Subir PostGIS localmente via Docker Compose (imagem `postgis/postgis`)
+- [x] #2 Criar ambiente Python (venv/conda) com GeoPandas, SQLAlchemy, psycopg2, mgwr, esda, libpysal, scikit-learn, xgboost
+- [x] #3 Estruturar repositório e subir README inicial explicando o objetivo do projeto
+- [x] #4 Criar conexão Python ↔ PostGIS testada com uma query simples (`SELECT PostGIS_Version()`)
 
 ## Epic 2 — Ingestão e preparação dos dados
 - [ ] #5 Baixar dataset de imóveis (King County House Sales) e carregar como tabela no PostGIS, convertendo lat/lon em geometria

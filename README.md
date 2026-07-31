@@ -70,7 +70,7 @@ O backlog completo, com todas as tasks por Epic, está em [`BACKLOG.md`](BACKLOG
 
 Resumo das Epics:
 
-- [ ] Epic 1 — Infraestrutura e ambiente
+- [x] Epic 1 — Infraestrutura e ambiente
 - [ ] Epic 2 — Ingestão e preparação dos dados (inclui geocodificação do ITBI-SP via join com o cadastro territorial do GeoSampa)
 - [ ] Epic 3 — Engenharia de features espaciais
 - [ ] Epic 4 — Análise exploratória espacial

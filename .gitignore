@@ -1,0 +1,24 @@
+# Segredos / ambiente
+.env
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Dados (geoespaciais tendem a ser grandes)
+data/raw/
+data/processed/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Editor / SO
+.vscode/
+.DS_Store

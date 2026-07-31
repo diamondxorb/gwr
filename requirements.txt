@@ -8,7 +8,7 @@ osmnx==2.0.0
 
 # Análise espacial / GWR
 mgwr==2.2.1
-libpysal==4.11.0
+libpysal==4.12.1
 esda==2.6.0
 
 # Modelagem
