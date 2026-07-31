@@ -66,16 +66,24 @@ jupyter lab
 
 ## Backlog / Roadmap
 
-O projeto está organizado em Epics, rastreadas como Issues neste repositório:
+O backlog completo, com todas as tasks por Epic, está em [`BACKLOG.md`](BACKLOG.md). Ele é a fonte de verdade; o script em `scripts/create_github_issues.sh` usa exatamente essa lista para criar as Issues no GitHub automaticamente (ver seção abaixo).
+
+Resumo das Epics:
 
 - [ ] Epic 1 — Infraestrutura e ambiente
-- [ ] Epic 2 — Ingestão e preparação dos dados
+- [ ] Epic 2 — Ingestão e preparação dos dados (inclui geocodificação do ITBI-SP via join com o cadastro territorial do GeoSampa)
 - [ ] Epic 3 — Engenharia de features espaciais
 - [ ] Epic 4 — Análise exploratória espacial
 - [ ] Epic 5 — Modelagem baseline (não-espacial)
 - [ ] Epic 6 — Reprodução do modelo GWR
 - [ ] Epic 7 — Análise crítica e conclusões
 - [ ] Epic 8 — Portfólio (dashboard + documentação)
+
+## Gerenciando o backlog no GitHub
+
+1. Rode `scripts/create_github_issues.sh` (requer [GitHub CLI](https://cli.github.com/) autenticado, `gh auth login`) para criar automaticamente um label por Epic e uma Issue por task.
+2. Crie um **Project (board)** no repositório (aba "Projects" → "New project" → template "Board") e adicione as issues nele — assim vocês visualizam To Do / In Progress / Done.
+3. Use **Milestones** (aba "Issues" → "Milestones") se quiser agrupar por Epic com data alvo, além dos labels.
 
 ## Licença
 
