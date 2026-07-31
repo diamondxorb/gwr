@@ -1,0 +1,44 @@
+# Banco de dados / espacial
+psycopg2-binary==2.9.9
+SQLAlchemy==2.0.35
+GeoAlchemy2==0.15.2
+geopandas==1.0.1
+shapely==2.0.6
+osmnx==2.0.0
+
+# Análise espacial / GWR
+mgwr==2.2.1
+libpysal==4.11.0
+esda==2.6.0
+
+# Modelagem
+scikit-learn==1.5.2
+xgboost==2.1.1
+statsmodels==0.14.2
+
+# Geocodificação (necessária para o dataset ITBI-SP)
+geopy==2.4.1
+
+# Manipulação de dados
+pandas==2.2.3
+numpy==2.1.1
+openpyxl==3.1.5
+odfpy==1.4.1
+
+# Visualização
+matplotlib==3.9.2
+folium==0.17.0
+contextily==1.6.2
+seaborn==0.13.2
+
+# Ambiente / utilidades
+python-dotenv==1.0.1
+jupyterlab==4.2.5
+
+# Dashboard (Epic 8)
+streamlit==1.39.0
+
+# Qualidade de código
+black==24.10.0
+flake8==7.1.1
+pytest==8.3.3
