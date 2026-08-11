@@ -6,10 +6,14 @@
 venv/
 env/
 
-# Dados (geoespaciais tendem a ser grandes)
-data/raw/
-data/processed/
-data/external/
+# Dados (geoespaciais tendem a ser grandes, e o King County não pode ser
+# redistribuído fora do Kaggle) — mantemos só a estrutura de pastas (.gitkeep)
+data/raw/*
+data/processed/*
+data/external/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
 cache/
 
 # Jupyter

@@ -37,8 +37,9 @@ Ver `docs/datasets.md` (a criar) para as instruções de download e as decisões
 ```bash
 # 1. Configurar ambiente
 cp .env.example .env
-python -m venv .venv && source .venv/bin/activate
+python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
+pip install -e .
 
 # 2. Subir o PostGIS
 docker compose up -d
@@ -54,19 +55,23 @@ jupyter lab
 
 ```
 ├── data/
-│   ├── raw/          # dados brutos baixados (não versionado)
-│   ├── processed/    # dados após limpeza/engenharia de features (não versionado)
-│   └── external/     # dados auxiliares (OSM, cadastro territorial)
-├── notebooks/        # notebooks numerados seguindo as Epics do backlog
-├── src/gwr_imoveis/  # código Python reutilizável (conexão db, ingestão, features)
-├── sql/               # scripts SQL (extensões, schemas, queries de feature engineering)
-├── docker-compose.yml # ambiente PostGIS local
+│   ├── raw/            # dados brutos baixados (Kaggle) — não versionado, só a pasta
+│   ├── processed/      # dados após limpeza/engenharia de features — não versionado
+│   └── external/       # dados auxiliares (POIs do OSM, cadastro territorial) — não versionado
+├── notebooks/          # notebooks numerados seguindo as Epics do backlog
+├── scripts/            # scripts utilitários (ex. criação das Issues no GitHub)
+├── sql/                # scripts SQL (extensões, schemas, migrações, auditorias)
+├── src/gwr_imoveis/    # código Python reutilizável (conexão db, ingestão, features)
+├── docker-compose.yml  # ambiente PostGIS local
+├── pyproject.toml      # instalação editável do pacote (pip install -e .)
 └── requirements.txt
 ```
 
+`data/` só existe no repositório como estrutura de pastas (arquivos `.gitkeep`) — o conteúdo em si nunca é versionado, tanto pelo tamanho quanto porque o dataset do Kaggle não pode ser redistribuído fora da plataforma. Rode os scripts de ingestão (`src/gwr_imoveis/ingest_*.py`) para reconstruir os dados localmente.
+
 ## Backlog / Roadmap
 
-O backlog completo, com todas as tasks por Epic, está em [`BACKLOG.md`](BACKLOG.md). Ele é a fonte de verdade; o script em `scripts/create_github_issues.sh` usa exatamente essa lista para criar as Issues no GitHub automaticamente (ver seção abaixo).
+O backlog completo, com todas as tasks por Epic e o progresso atual, está em [`BACKLOG.md`](BACKLOG.md) — é a fonte de verdade, refletida como Issues no GitHub.
 
 Resumo das Epics:
 
@@ -78,12 +83,6 @@ Resumo das Epics:
 - [ ] Epic 6 — Reprodução do modelo GWR
 - [ ] Epic 7 — Análise crítica e conclusões
 - [ ] Epic 8 — Portfólio (dashboard + documentação)
-
-## Gerenciando o backlog no GitHub
-
-1. Rode `scripts/create_github_issues.sh` (requer [GitHub CLI](https://cli.github.com/) autenticado, `gh auth login`) para criar automaticamente um label por Epic e uma Issue por task.
-2. Crie um **Project (board)** no repositório (aba "Projects" → "New project" → template "Board") e adicione as issues nele — assim vocês visualizam To Do / In Progress / Done.
-3. Use **Milestones** (aba "Issues" → "Milestones") se quiser agrupar por Epic com data alvo, além dos labels.
 
 ## Licença
 
