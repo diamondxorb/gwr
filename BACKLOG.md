@@ -12,7 +12,7 @@ Cada item aqui vira uma Issue no GitHub (ver README para o passo a passo). O nú
 - [x] #5 Baixar dataset de imóveis (King County House Sales) e carregar como tabela no PostGIS, convertendo lat/lon em geometria
 - [ ] #6 Baixar dados do OSM via Overpass API (`osmnx`) para a região: escolas, estações de metrô/ônibus, parques, comércio
 - [ ] #7 Carregar camadas do OSM no PostGIS como tabelas separadas por categoria de POI
-- [ ] #8 Validar sistemas de coordenadas (SRID) e reprojetar tudo para um CRS métrico local
+- [x] #8 Validar sistemas de coordenadas (SRID) e reprojetar tudo para um CRS métrico local
 - [ ] #9 Checar qualidade dos dados: duplicatas, outliers de preço, geometria inválida (`ST_IsValid`)
 - [x] **#9a Decidir estratégia de geocodificação do dataset ITBI-SP**: comparar (a) geocodificação por endereço via Nominatim/OSM vs (b) join pelo cadastro territorial (Setor-Quadra-Lote) com a malha de lotes do GeoSampa.
   - **Decisão**: join pelo cadastro territorial (Setor-Quadra-Lote) é a estratégia principal — demonstra uso genuíno de PostGIS (join espacial/relacional, geometria exata), em vez de depender de uma API de geocoding.
