@@ -14,11 +14,15 @@ Cada item aqui vira uma Issue no GitHub (ver README para o passo a passo). O nú
 - [ ] #7 Carregar camadas do OSM no PostGIS como tabelas separadas por categoria de POI
 - [ ] #8 Validar sistemas de coordenadas (SRID) e reprojetar tudo para um CRS métrico local
 - [ ] #9 Checar qualidade dos dados: duplicatas, outliers de preço, geometria inválida (`ST_IsValid`)
-- [ ] **#9a Decidir estratégia de geocodificação do dataset ITBI-SP**: comparar (a) geocodificação por endereço via Nominatim/OSM vs (b) join pelo cadastro territorial (Setor-Quadra-Lote) com a malha de lotes do GeoSampa. Documentar prós/contras de cada uma no README/docs antes de implementar.
+- [x] **#9a Decidir estratégia de geocodificação do dataset ITBI-SP**: comparar (a) geocodificação por endereço via Nominatim/OSM vs (b) join pelo cadastro territorial (Setor-Quadra-Lote) com a malha de lotes do GeoSampa.
+  - **Decisão**: join pelo cadastro territorial (Setor-Quadra-Lote) é a estratégia principal — demonstra uso genuíno de PostGIS (join espacial/relacional, geometria exata), em vez de depender de uma API de geocoding.
+  - **v1**: transações do ITBI sem lote correspondente no join **ficam de fora do dataset**. A taxa de match e os casos sem match são medidos e documentados (#9e), não descartados silenciosamente.
+  - **Nice-to-have (não faz parte do v1)**: ver #9f — fallback via Nominatim para os registros sem match.
 - [ ] **#9b Baixar a malha de lotes (SQL — Setor/Quadra/Lote) do GeoSampa e carregar no PostGIS** como `raw.lotes_geosampa`
 - [ ] **#9c Baixar e carregar os arquivos mensais de transações ITBI (xlsx/ods) no PostGIS** como `raw.itbi_transacoes`, padronizando a coluna de SQL entre as duas bases (formato costuma divergir — checar zeros à esquerda, separadores)
 - [ ] **#9d Implementar o join espacial/relacional ITBI × lotes GeoSampa pelo SQL**, gerando uma tabela `features.itbi_geocodificado` com geometria do lote associada a cada transação
 - [ ] **#9e Medir taxa de match do join** (% de transações que encontraram lote correspondente) e investigar/documentar os casos sem match
+- [ ] **#9f (nice-to-have) Fallback via Nominatim/OSM para transações sem match no join** — geocodificar por endereço só os registros que sobraram sem lote correspondente após #9e, em vez de descartá-los. Só entra no backlog ativo depois que #9a–#9e estiverem completos e a taxa de match do join v1 for conhecida.
 
 ## Epic 3 — Engenharia de features espaciais
 - [ ] #10 Calcular distância ao POI mais próximo por categoria usando `ST_Distance` + `LATERAL JOIN`
