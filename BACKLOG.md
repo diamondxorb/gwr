@@ -9,7 +9,7 @@ Cada item aqui vira uma Issue no GitHub (ver README para o passo a passo). O nú
 - [x] #4 Criar conexão Python ↔ PostGIS testada com uma query simples (`SELECT PostGIS_Version()`)
 
 ## Epic 2 — Ingestão e preparação dos dados
-- [ ] #5 Baixar dataset de imóveis (King County House Sales) e carregar como tabela no PostGIS, convertendo lat/lon em geometria
+- [x] #5 Baixar dataset de imóveis (King County House Sales) e carregar como tabela no PostGIS, convertendo lat/lon em geometria
 - [ ] #6 Baixar dados do OSM via Overpass API (`osmnx`) para a região: escolas, estações de metrô/ônibus, parques, comércio
 - [ ] #7 Carregar camadas do OSM no PostGIS como tabelas separadas por categoria de POI
 - [ ] #8 Validar sistemas de coordenadas (SRID) e reprojetar tudo para um CRS métrico local

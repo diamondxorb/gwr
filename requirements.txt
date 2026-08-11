@@ -34,6 +34,7 @@ seaborn==0.13.2
 # Ambiente / utilidades
 python-dotenv==1.0.1
 jupyterlab==4.2.5
+kaggle==2.2.4
 
 # Dashboard (Epic 8)
 streamlit==1.39.0
