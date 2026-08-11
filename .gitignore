@@ -9,6 +9,8 @@ env/
 # Dados (geoespaciais tendem a ser grandes)
 data/raw/
 data/processed/
+data/external/
+cache/
 
 # Jupyter
 .ipynb_checkpoints/

@@ -10,7 +10,7 @@ Cada item aqui vira uma Issue no GitHub (ver README para o passo a passo). O nú
 
 ## Epic 2 — Ingestão e preparação dos dados
 - [x] #5 Baixar dataset de imóveis (King County House Sales) e carregar como tabela no PostGIS, convertendo lat/lon em geometria
-- [ ] #6 Baixar dados do OSM via Overpass API (`osmnx`) para a região: escolas, estações de metrô/ônibus, parques, comércio
+- [x] #6 Baixar dados do OSM via Overpass API para a região: escolas, estações de metrô/ônibus, parques, comércio — 938/8149/2858/12744 POIs em `data/external/*.parquet` (fala direto com Overpass em vez de `osmnx.features_from_bbox`, ver `src/gwr_imoveis/ingest_osm_pois.py`)
 - [ ] #7 Carregar camadas do OSM no PostGIS como tabelas separadas por categoria de POI
 - [x] #8 Validar sistemas de coordenadas (SRID) e reprojetar tudo para um CRS métrico local
 - [x] #9 Checar qualidade dos dados: duplicatas, outliers de preço, geometria inválida (`ST_IsValid`) — resultado em `sql/02_king_county_data_quality.sql`: 0 duplicatas, 0 geometria inválida, 1146 outliers de preço (imóveis de luxo legítimos, R$/US$75k–7,7M — tratar via log-transform na modelagem, não remover)
